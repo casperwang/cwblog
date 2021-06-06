@@ -30,6 +30,3 @@ hasCJKLanguage = true
 	name = "Instagram"
 	url = "https://www.instagram.com/casperwang1001/"
 	pre = "<i class='fab fa-instagram'></i>"
-
-[markup]
-    defaultMarkdownHandler = "blackfriday"
