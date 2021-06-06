@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="container">
+    <div class="section">
+    	<div class="columns is-centered">
+			<div class="column">
+		        <div class="content">
+	            	<h1 style="margin: 0">{{ .Title }}</h1>
+					{{ range .Data.Terms.ByCount }}
+					<a href="{{ .Page.Permalink }}">
+						<div class="card columns">
+							{{ $firstChild := index .Pages 0 }}
+							{{ with $firstChild.Params.images }}
+							<div class="card-image column is-one-fifth" style="padding: 0;">
+	                            <figure class="image is-3by2" style="margin: 0;">
+	                                <img src="{{ index . 0 }}" alt="" style="object-fit: cover;">
+	                            </figure>
+							</div>
+                            {{ end }}
+							<div class="card-content column">
+								<span class="title is-4 is-size-4-mobile">{{ .Page.Title }}</span>
+								{{ $pageCount := len .Pages }}
+								<p>{{ $pageCount }} post{{ if ne $pageCount 1 }}s{{ end }} </p>
+							</div>
+						</div>
+					</a>
+					{{ end }}
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+{{ end }}

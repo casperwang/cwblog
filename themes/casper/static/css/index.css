@@ -1,0 +1,46 @@
+.typewriter h1 {
+    font-family: 'Waiting for the Sunrise', cursive;
+    font-size: 52px;
+    margin: 10px 50px;
+    letter-spacing: 6px; 
+    font-weight: bold;
+    line-height: 1.6;
+    text-align: left;
+}
+
+#handle {
+    text-align: right;
+}
+
+@media only screen
+and (min-width : 1200px) {
+	.content {
+		padding-top: 6em;
+	}
+    .typewriter h1 {
+        font-size: 52px;
+        margin: 10px 50px;
+    }
+}
+
+@media only screen
+and (max-width: 1200px) {
+    .content {
+        padding-top: 4em;
+    }
+    .typewriter h1 {
+        font-size: 48px;
+        margin: 10px 50px;
+    }
+}
+
+@media only screen
+and (max-width: 650px) {
+    .content {
+        padding-top: 0;
+    }
+    .typewriter h1 {
+        font-size: 32px;
+        margin: 10px 10px;
+    }
+}

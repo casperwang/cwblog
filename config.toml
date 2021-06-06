@@ -1,0 +1,35 @@
+baseURL = "https://casperwang.github.io"
+title = "cwblog"
+theme = "casper"
+languageCode = "en-us"
+hasCJKLanguage = true
+
+[params]
+	description = "No description"
+    author = "Casper Wang"
+    authorImage = "/images/avatar.png"
+
+[[menu.main]]
+	name = "About"
+	url = "/about"
+
+[[menu.main]]
+	name = "Blog"
+	url = "/blog"
+
+[[menu.main]]
+	name = "Categories"
+	url = "/categories"
+
+[[menu.social]]
+	name = "GitHub"
+	url = "https://github.com/casperwang"
+	pre = "<i class='fab fa-github'></i>"
+
+[[menu.social]]
+	name = "Instagram"
+	url = "https://www.instagram.com/casperwang1001/"
+	pre = "<i class='fab fa-instagram'></i>"
+
+[markup]
+    defaultMarkdownHandler = "blackfriday"
