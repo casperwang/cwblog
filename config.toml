@@ -1,4 +1,4 @@
-baseURL = "https://casperwang.github.io"
+baseURL = "https://casperwang.pages.dev"
 title = "cwblog"
 theme = "casper"
 languageCode = "en-us"
