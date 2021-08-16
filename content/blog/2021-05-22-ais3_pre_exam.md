@@ -3,7 +3,7 @@ title: AIS3 pre-exam
 date: 2021-05-22
 draft: false
 categories:
-  - Information Security
+  - Contest Review
 ---
 
 上次打bamboofox覺得挺有趣的，又因為去年參加過的曹宸睿說會覺得頗有收穫所以想報名看看，就順勢拉了蛋餅、蕭梓宏、劉至軒、鄭允臻等人一起報名參加了。
@@ -12,13 +12,13 @@ categories:
 
 以下是這場比賽的簡單Write up，順便紀錄一下自己這次學到了些什麼。
 
-# Microchip
+## Microchip
 
 除了簽到題以外最多人做出來的一題，其實就是給你一個function，看懂之後發現它是對輸入的flag每四個char為一組加密，加密方法是把ASCII加減特定的值，於是就先用flag開頭的AIS3去reverse找出加密的key，然後後面就可以照著key reverse出原本的flag了。
 
 因為是看懂程式碼就會做的題目，好像也沒學到什麼技巧(?)
 
-# ReSident evil villAge
+## ReSident evil villAge
 
 目標是要嘗試得到"Ethan Winters"經過RSA加密後的簽名，可以對server做的事情是輸入字串並得到簽名，只不過該字串不能是"Ethan Winters"。
 
@@ -26,7 +26,7 @@ categories:
 
 因為一開始就出現RSA.generate()所以就大概知道是要往這邊研究，原本一直覺得是要解出$d$，還在想大數找原根之類的事情，查了一些資料複習了好久沒碰的RSA後確定那不可做，也才突然想到其實題目應該只是想要我們利用那個函式而已xd
 
-# Republic of South Africa
+## Republic of South Africa
 
 目標一樣是要解RSA加密，題目給了一個會產生兩個質數$p, q$的function，然後會給你```e```、```n = p * q```，還有```c = pow(bytes_to_long(flag), e, n)```。
 
@@ -38,7 +38,7 @@ categories:
 
 這題原本真的超想放棄，要不是最後那個通靈的觀察我根本不可能做出來，更扯的是賽後問到的每個人都說這是冷知識(!?)，果然我真的不會物理QQ
 
-# ⲩⲉⲧ ⲁⲛⲟⲧⲏⲉꞅ 𝓵ⲟ𝓰ⲓⲛ ⲣⲁ𝓰ⲉ
+## ⲩⲉⲧ ⲁⲛⲟⲧⲏⲉꞅ 𝓵ⲟ𝓰ⲓⲛ ⲣⲁ𝓰ⲉ
 
 目標很簡單，就是登入網頁然後拿到flag。
 
@@ -51,11 +51,11 @@ password: ```", password: , "a":"b```\
 
 事後被提醒才想起來這好像叫injection xd
 
-# Microcheese
+## Microcheese
 
 原本在研究Microchess，結果就發現變成兩題了，把兩題打開比對程式碼後發現只差兩行，然後這題就被秒掉了。
 
-# Microchess
+## Microchess
 
 目標是跟AI玩一場先手必輸的nim然後你是先手，贏了才可以拿到flag。
 
@@ -65,7 +65,7 @@ password: ```", password: , "a":"b```\
 
 原本看到是賽局覺得終於有自己擅長的東西了，結果根本毫無關聯，不過學到新的hashing function破解技巧也很酷就是了。
 
-# 後記
+## 後記
 
 最後幾個小時都在搞microchart，結果因為不會做模256下的高斯消去而壓線失敗，小可惜。
 
