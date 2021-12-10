@@ -6,8 +6,10 @@ hasCJKLanguage = true
 enableEmoji = true
 
 [params]
+	title = "cwblog"
 	description = "Do my best and let go"
-	author = "Casper Wang"
+	author = "casperwang"
+	ShowReadingTime = true
 
 [[menu.main]]
 	name = "About"

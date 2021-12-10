@@ -1,0 +1,47 @@
+{{- define "main" }}
+
+  <br><br>
+
+  <div class="post-content typewriter">
+    <h1 id="quote"> {{ .Params.subheading }} </h1>
+    <h1 id="handle"> @{{ .Params.handle }} </h1>
+  </div>
+
+  <br><br><br><br>
+
+  {{- $pages := site.RegularPages }}
+
+  {{- $paginator := .Paginate $pages }}
+
+  {{- $term := .Data.Term }}
+  {{- range $index, $page := $paginator.Pages }}
+
+  {{- $class := "post-entry" }}
+
+  {{- $user_preferred := or .Site.Params.disableSpecial1stPost .Site.Params.homeInfoParams }}
+  {{- $class = "post-entry" }}
+
+  <article class="{{ $class }}">
+    {{- $isHidden := (.Site.Params.cover.hidden | default .Site.Params.cover.hiddenInList) }}
+    {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+    <header class="entry-header">
+      <h2>
+        {{- .Title }}
+        {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+      </h2>
+    </header>
+    {{- if (ne (.Param "hideSummary") true) }}
+    <section class="entry-content">
+      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    </section>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <footer class="entry-footer">
+      {{- partial "post_meta.html" . -}}
+    </footer>
+    {{- end }}
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  </article>
+  {{- end }}
+
+{{- end }}
