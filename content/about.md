@@ -18,10 +18,10 @@ draft: false
 
 * 建中資訊讀書會 講師
 * 2021 APCS Camp 講師
-* 2022 IOICamp 講師
+<!--- * 2022 IOICamp 講師 --->
 
 ### 其他紀錄
 
 * APCS 觀念五級/實作五級
-* Codeforces max rating 2402
+* Codeforces max rating 2423
 * IELTS 雅思7.5分

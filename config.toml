@@ -1,6 +1,6 @@
 baseURL = "https://casperwang.pages.dev"
 title = "cwblog"
-theme = "hyde"
+theme = "hugo-PaperMod"
 languageCode = "en-us"
 hasCJKLanguage = true
 enableEmoji = true
