@@ -1,32 +1,22 @@
 baseURL = "https://casperwang.pages.dev"
 title = "cwblog"
-theme = "casper"
+theme = "hyde"
 languageCode = "en-us"
 hasCJKLanguage = true
+enableEmoji = true
 
 [params]
-	description = "No description"
-    author = "Casper Wang"
-    authorImage = "/images/avatar.png"
+	description = "Do my best and let go"
+	author = "Casper Wang"
 
 [[menu.main]]
 	name = "About"
 	url = "/about"
 
 [[menu.main]]
-	name = "Blog"
+	name = "Archive"
 	url = "/blog"
 
 [[menu.main]]
 	name = "Categories"
 	url = "/categories"
-
-[[menu.social]]
-	name = "GitHub"
-	url = "https://github.com/casperwang"
-	pre = "<i class='fab fa-github'></i>"
-
-[[menu.social]]
-	name = "Instagram"
-	url = "https://www.instagram.com/casperwang1001/"
-	pre = "<i class='fab fa-instagram'></i>"

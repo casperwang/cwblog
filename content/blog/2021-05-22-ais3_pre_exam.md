@@ -1,9 +1,10 @@
 ---
+type: 比賽
 title: AIS3 pre-exam
 date: 2021-05-22
 draft: false
 categories:
-  - Contest Review
+  - 比賽心得
 ---
 
 上次打bamboofox覺得挺有趣的，又因為去年參加過的曹宸睿說會覺得頗有收穫所以想報名看看，就順勢拉了蛋餅、蕭梓宏、劉至軒、鄭允臻等人一起報名參加了。
