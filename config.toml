@@ -4,6 +4,7 @@ theme = "hugo-PaperMod"
 languageCode = "en-us"
 hasCJKLanguage = true
 enableEmoji = true
+paginate = 5
 
 [params]
 	title = "cwblog"
