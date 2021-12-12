@@ -16,8 +16,8 @@ enableEmoji = true
 	url = "/about"
 
 [[menu.main]]
-	name = "Archive"
-	url = "/blog"
+	name = "archives"
+	url = "/archives"
 
 [[menu.main]]
 	name = "Categories"
