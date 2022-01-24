@@ -26,3 +26,5 @@ draft: false
 * Codeforces max rating 2423
 * IELTS 雅思7.5分
 * APCS 觀念五級/實作五級
+
+Here is the flag: DRINK{jizz_7122_jizz_7122$1/25_11:59PM$day3_lunch}
