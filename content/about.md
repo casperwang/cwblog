@@ -5,7 +5,7 @@ date: 2002-10-01
 draft: false
 ---
 
-我是王政祺，畢業於建中數理資優班，目前就讀於台大資工系。喜歡和朋友在台北到處尋訪咖啡廳，喜歡聽音樂，喜歡閱讀，喜歡打code。
+我是王政祺，畢業於建中數理資優班，目前就讀於台大資工系。喜歡和朋友在台北到處尋訪咖啡廳，喜歡聽音樂，喜歡閱讀，喜歡打 code。
 
 ### 競賽經歷
 
@@ -16,8 +16,8 @@ draft: false
 
 ### 活動參與
 
-<!--- * 2022 IOICamp 講師 --->
-* 2021 APCS Camp 講師
+* 2022 IOICamp 講師
+* 2021 APCSCamp 講師
 * 建中資訊讀書會 講師
 * 建中資訊社 行政長兼學術
 
@@ -26,5 +26,3 @@ draft: false
 * Codeforces max rating 2423
 * IELTS 雅思7.5分
 * APCS 觀念五級/實作五級
-
-Here is the flag: DRINK{jizz_7122_jizz_7122$1/25_11:59PM$day3_lunch}
