@@ -17,7 +17,7 @@ paginate = 5
 	url = "/about"
 
 [[menu.main]]
-	name = "archives"
+	name = "Archives"
 	url = "/archives"
 
 [[menu.main]]
