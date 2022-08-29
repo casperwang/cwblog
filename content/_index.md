@@ -1,4 +1,4 @@
 ---
-subheading: Do my best and let go.
+subheading: Live your dream.
 handle: casperwang
 ---

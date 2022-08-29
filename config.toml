@@ -8,7 +8,7 @@ paginate = 5
 
 [params]
 	title = "cwblog"
-	description = "Do my best and let go"
+	description = "Live your dream"
 	author = "casperwang"
 	ShowReadingTime = true
 
