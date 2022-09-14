@@ -1,7 +1,7 @@
 ---
 title: 大一下修課心得
 date: 2022-06-04
-draft: true
+draft: false
 categories:
   - Course Review
 ---
