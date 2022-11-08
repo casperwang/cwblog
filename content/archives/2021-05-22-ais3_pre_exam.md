@@ -4,6 +4,8 @@ date: 2021-05-22
 draft: false
 categories:
   - Contest Review
+sitemap:
+  priority: 0.8
 ---
 
 上次打 bamboofox 覺得挺有趣的，又因為去年參加過的曹宸睿說會覺得頗有收穫所以想報名看看，就順勢拉了蛋餅、蕭梓宏、劉至軒等人一起報名參加了。

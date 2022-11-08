@@ -4,6 +4,8 @@ date: 2021-08-27
 draft: false
 categories:
   - Course Review
+sitemap:
+  priority: 0.8
 ---
 
 因為在考慮輔修經濟，剛好暑假疫情緣故也沒辦法出門，就想說來修個線上課看看自己對這個領域到底有沒有興趣

@@ -4,6 +4,8 @@ date: 2022-05-15
 draft: false
 categories:
   - Contest Review
+sitemap:
+  priority: 0.8
 ---
 
 因為暑假沒有空參加 AIS3，今年抱持著玩玩的心態在打 pre exam。中間同時卡到 GCJ round 2 和 HP codewar 所以不是所有時間都在解題，不過也因為是抱持娛樂心態就將大部分時間都奉獻給了 Crypto，最後成功解出兩題解題人數偏少的題目，也算是頗有成就感。

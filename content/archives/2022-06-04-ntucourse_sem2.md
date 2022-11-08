@@ -4,6 +4,8 @@ date: 2022-06-04
 draft: false
 categories:
   - Course Review
+sitemap:
+  priority: 0.8
 ---
 
 這學期總共修了 7 門課共計 21 學分：
