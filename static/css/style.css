@@ -18,3 +18,13 @@ code.has-jax {
 #handle {
     text-align: right;
 }
+
+.social-icons {
+  text-align: right;
+  padding-right: 60px;
+}
+
+.post-content a {
+  text-decoration: none;
+  box-shadow: 0 0px;
+}

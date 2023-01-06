@@ -1,5 +1,5 @@
 ---
-title: 暑修個/總經原修課心得
+title: 暑修個/總經原修課紀錄
 date: 2021-08-27
 draft: false
 categories:

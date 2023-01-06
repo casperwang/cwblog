@@ -1,5 +1,5 @@
 ---
-title: 法蘭西全史
+title: \[閱讀心得\] 法蘭西全史
 date: 2021-06-21
 draft: false
 categories:

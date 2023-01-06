@@ -16,6 +16,7 @@ function typewriter() {
 	if (content_idx == content[target_idx].length) {
 		target[target_idx++].text(display_content);
 		if (target_idx == target.length) {
+      $(".social-icons").show();
 			return;
 		}
 		content_idx = 0;
@@ -28,4 +29,5 @@ function typewriter() {
 
 init();
 
+$(".social-icons").hide();
 typewriter();

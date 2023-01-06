@@ -1,5 +1,5 @@
 ---
-title: 大一上修課心得
+title: 大一上修課紀錄
 date: 2022-01-11
 draft: false
 categories:

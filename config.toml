@@ -11,6 +11,18 @@ paginate = 5
 	description = "Live your dream"
 	author = "casperwang"
 	ShowReadingTime = true
+  [[params.socialIcons]]
+    name = "facebook"
+    url = "https://www.facebook.com/profile.php?id=100009793718487"
+  [[params.socialIcons]]
+    name = "instagram"
+    url = "https://www.instagram.com/casperwang1001/"
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/casperwang"
+  [[params.socialIcons]]
+    name = "email"
+    url = "https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=casperwang2014@gmail.com"
 
 [sitemap]
   changefreq = 'monthly'

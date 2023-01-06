@@ -5,6 +5,9 @@
   <div class="post-content typewriter">
     <h1 id="quote"> {{ .Params.subheading }} </h1>
     <h1 id="handle"> @{{ .Params.handle }} </h1>
+    <footer class="entry-footer">
+      {{ partial "social_icons.html" site.Params.socialIcons }}
+    </footer>
   </div>
 
   <br><br><br><br>
