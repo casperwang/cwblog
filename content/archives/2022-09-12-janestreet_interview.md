@@ -1,5 +1,5 @@
 ---
-title: Jane Street Intern 2023 申請心得
+title: Jane Street Intern 申請心得
 date: 2022-09-12
 draft: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: Google SWE Intern 2023 申請心得
+title: Google SWE Intern 申請心得
 date: 2022-10-07
 draft: true
 categories:

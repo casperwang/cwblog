@@ -1,5 +1,5 @@
 ---
-title: HPE Intern 2022
+title: HPE Intern
 date: 2022-07-31
 draft: false
 categories:
