@@ -4,6 +4,7 @@ date: 2022-08-28
 draft: false
 categories:
   - Travel
+thumbnailImage: ./day4.jpeg
 ---
 
 ---

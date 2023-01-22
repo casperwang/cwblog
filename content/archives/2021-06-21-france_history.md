@@ -1,7 +1,9 @@
 ---
-title: \[閱讀心得\] 法蘭西全史
+title: 法蘭西全史
 date: 2021-06-21
 draft: false
+tags:
+  - 閱讀心得
 categories:
   - Book Review
 sitemap:

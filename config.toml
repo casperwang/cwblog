@@ -36,7 +36,3 @@ paginate = 5
 [[menu.main]]
 	name = "Archives"
 	url = "/archives"
-
-[[menu.main]]
-	name = "Categories"
-	url = "/categories"

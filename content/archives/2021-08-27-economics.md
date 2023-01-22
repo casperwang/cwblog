@@ -2,8 +2,8 @@
 title: 暑修個/總經原修課紀錄
 date: 2021-08-27
 draft: false
-categories:
-  - Course Review
+tags:
+  - 修課心得
 sitemap:
   priority: 0.8
 ---

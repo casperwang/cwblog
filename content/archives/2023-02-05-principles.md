@@ -2,8 +2,8 @@
 title: \[閱讀心得\] 原則
 date: 2023-06-21
 draft: true
-categories:
-  - Book Review
+tags:
+  - 閱讀心得
 sitemap:
   priority: 0.8
 ---
