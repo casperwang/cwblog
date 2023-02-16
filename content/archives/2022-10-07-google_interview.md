@@ -1,5 +1,5 @@
 ---
-title: Google SWE Intern 面試心得分享
+title: Google SWE Intern 面試
 date: 2023-01-19
 description: Do my best and let go.
 draft: false
