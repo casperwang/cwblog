@@ -1,7 +1,7 @@
 ---
 title: IOICamp 2023
 date: 2023-02-09
-draft: true
+draft: false
 tags:
   - Event
 sitemap:
