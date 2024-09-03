@@ -1,16 +1,22 @@
 baseURL = "https://casperwang.pages.dev"
-title = "cwblog"
+title = "casperwang"
 theme = "hugo-PaperMod"
 languageCode = "en-us"
 hasCJKLanguage = true
 enableEmoji = true
 paginate = 5
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
 	title = "cwblog"
 	description = "Live your dream"
 	author = "casperwang"
 	ShowReadingTime = true
+
   [[params.socialIcons]]
     name = "facebook"
     url = "https://www.facebook.com/profile.php?id=100009793718487"
@@ -34,5 +40,5 @@ paginate = 5
 	url = "/about"
 
 [[menu.main]]
-	name = "Archives"
+	name = "Writing"
 	url = "/archives"

@@ -32,3 +32,21 @@ code.has-jax {
 .typewriter {
   margin-top: 20%;
 }
+
+details[open] > summary {
+  font-weight: bold;
+}
+
+/* Set indentation and line spacing for <details> elements */
+details {
+  margin-left: 0.5em; /* Adjust this value for the desired indentation */
+  margin-bottom: 0.5em; /* Adjust spacing between items */
+  list-style: none; /* Remove default bullet points */
+}
+
+/* Ensure <summary> has a consistent line height */
+summary {
+  line-height: 1.25; /* Match the line height of the list items */
+  cursor: pointer; /* Optional: makes it clear that it's clickable */
+  display: list-item; /* Ensures alignment with other list items */
+}
