@@ -47,9 +47,9 @@ class TravelMap extends Component {
         const img = new Image();
         img.src = location.images[0];
         // Optionally preload next image in sequence
-        if (location.images.length > 1) {
-          const nextImg = new Image();
-          nextImg.src = location.images[1];
+        for (let i = 1; i < location.images.length; i++) {
+          const img = new Image();
+          img.src = location.images[i];
         }
       }
     });
