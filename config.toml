@@ -16,6 +16,7 @@ paginate = 5
 	description = "Live your dream"
 	author = "casperwang"
 	ShowReadingTime = true
+  ShowWordCount = true
 
   [[params.socialIcons]]
     name = "facebook"
