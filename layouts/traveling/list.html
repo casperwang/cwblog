@@ -1,0 +1,209 @@
+{{- define "main" }}
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Yomogi&family=Patrick+Hand&family=Caveat&display=swap" rel="stylesheet">
+
+<div class="post-content" style="position: relative; min-height: 100vh; background: transparent;">
+  
+  <!-- Travel Map Container -->
+  <div id="travel-map-container" class="travel-map"></div>
+</div>
+
+<!-- Load React and ReactDOM -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+<!-- Load our bundled map component -->
+<script src="/js/travel-map.bundle.js"></script>
+
+<!-- Initialize the travel map -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const mapContainer = document.getElementById('travel-map-container');
+  
+  if (!mapContainer) {
+    console.error('Map container not found');
+    return;
+  }
+  
+  if (!window.React || !window.ReactDOM) {
+    console.error('React or ReactDOM not loaded');
+    return;
+  }
+  
+  if (!window.TravelMap) {
+    console.error('TravelMap component not loaded');
+    return;
+  }
+  
+  try {
+    // Use React 18 createRoot API
+    const root = window.ReactDOM.createRoot(mapContainer);
+    root.render(window.React.createElement(window.TravelMap));
+    console.log('Travel map initialized successfully');
+  } catch (error) {
+    console.error('Error initializing travel map:', error);
+    
+    // Fallback to React 17 API if createRoot fails
+    try {
+      window.ReactDOM.render(
+        window.React.createElement(window.TravelMap),
+        mapContainer
+      );
+      console.log('Travel map initialized with fallback method');
+    } catch (fallbackError) {
+      console.error('Fallback initialization also failed:', fallbackError);
+    }
+  }
+});
+</script>
+
+<style>
+.travel-posts {
+  margin-top: 40px;
+}
+
+.travel-post-item {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.travel-post-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.travel-post-item h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.travel-post-item h3 a {
+  color: #333;
+  text-decoration: none;
+}
+
+.travel-post-item h3 a:hover {
+  color: #007bff;
+}
+
+.post-meta {
+  margin: 0 0 15px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.categories {
+  margin-left: 10px;
+}
+
+.category {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.post-summary {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+#travel-map-container {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  z-index: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* react-simple-maps specific styles */
+.travel-map svg {
+  border-radius: 0;
+}
+
+.travel-map .rsm-geography {
+  transition: all 0.3s ease;
+}
+
+.travel-map .rsm-geography:hover {
+  fill: #d0d0d0;
+}
+
+.travel-map .rsm-geography:focus {
+  outline: none !important;
+}
+
+.travel-map .rsm-geography:active {
+  outline: none !important;
+}
+
+.travel-map .rsm-marker {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.travel-map .rsm-marker circle {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.travel-map .rsm-marker text {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+/* High-resolution map styles */
+.travel-map img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Ensure crisp rendering on high-DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .travel-map img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Simple map styling - no hover effects */
+.travel-map g[data-marker] circle {
+  cursor: default;
+}
+
+.travel-map g[data-marker] text {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Prevent map from shifting */
+.travel-map svg {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Prevent any layout shifts */
+.travel-map {
+  contain: layout style paint;
+}
+</style>
+{{- end }}

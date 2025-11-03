@@ -38,7 +38,14 @@ paginate = 5
 [[menu.main]]
 	name = "About"
 	url = "/about"
+  weight = 1
 
 [[menu.main]]
 	name = "Writing"
 	url = "/archives"
+  weight = 2
+
+[[menu.main]]
+  name = "Traveling"
+  url = "/traveling"
+  weight = 3
