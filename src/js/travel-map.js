@@ -564,7 +564,7 @@ class TravelMap extends Component {
               }}>
                 {(pinnedLocation || hoveredLocation).times && (pinnedLocation || hoveredLocation).times[selectedImageIndex] && (
                   <div style={{
-                    fontFamily: 'Yomogi',
+                    fontFamily: (/^[\x00-\x7F]*$/.test((pinnedLocation || hoveredLocation).locations[selectedImageIndex]) ? 'Quicksand' : 'Yomogi'),
                     fontSize: '12px',
                     color: '#666',
                     marginBottom: '0px',
@@ -576,9 +576,14 @@ class TravelMap extends Component {
                 )}
                 {(pinnedLocation || hoveredLocation).locations && (pinnedLocation || hoveredLocation).locations[selectedImageIndex] && (
                   <div style={{
-                    fontFamily: 'Yomogi',
+                    fontFamily: ((() => {
+                      const text = (pinnedLocation || hoveredLocation).locations[selectedImageIndex];
+                      if (/^[\x00-\x7F]*$/.test(text)) return 'Quicksand'; // ASCII
+                      // French or German: basic check for accent and umlaut/eszett
+                      if (/[éèêëàâäîïôöùûüçëßäöü]/i.test(text)) return 'Quicksand';
+                      return 'Yomogi';
+                    })()),
                     fontSize: '14px',
-                    fontWeight: 'bold',
                     color: '#333',
                     marginBottom: '6px',
                     textAlign: 'center'
