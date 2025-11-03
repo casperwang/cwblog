@@ -34,6 +34,10 @@ class TravelMap extends Component {
     setTimeout(() => {
       this.setState({ isLoading: false });
     }, 1000);
+    
+    // Add keyboard event listener for arrow key navigation
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    window.addEventListener('keydown', this.handleKeyDown);
   }
 
   preloadInitialImages = () => {
@@ -69,6 +73,10 @@ class TravelMap extends Component {
     // Clean up leave timeout
     if (this.leaveTimeout) {
       clearTimeout(this.leaveTimeout);
+    }
+    // Clean up keyboard event listener
+    if (this.handleKeyDown) {
+      window.removeEventListener('keydown', this.handleKeyDown);
     }
   }
 
@@ -224,7 +232,9 @@ class TravelMap extends Component {
   }
 
   handleNextImage = (e) => {
-    e.stopPropagation();
+    if (e) {
+      e.stopPropagation();
+    }
     const { pinnedLocation, hoveredLocation, selectedImageIndex } = this.state;
     const activeLocation = pinnedLocation || hoveredLocation;
     if (activeLocation && activeLocation.images && activeLocation.images.length > 0) {
@@ -239,7 +249,9 @@ class TravelMap extends Component {
   }
 
   handlePrevImage = (e) => {
-    e.stopPropagation();
+    if (e) {
+      e.stopPropagation();
+    }
     const { pinnedLocation, hoveredLocation, selectedImageIndex } = this.state;
     const activeLocation = pinnedLocation || hoveredLocation;
     if (activeLocation && activeLocation.images && activeLocation.images.length > 0) {
@@ -250,6 +262,25 @@ class TravelMap extends Component {
         img.src = activeLocation.images[prevIndex];
       }
       this.setState({ selectedImageIndex: prevIndex });
+    }
+  }
+
+  handleKeyDown = (e) => {
+    const { showGallery } = this.state;
+    // Only handle arrow keys when gallery is showing
+    if (!showGallery) {
+      return;
+    }
+    
+    // Right arrow key - next image
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      this.handleNextImage(e);
+    }
+    // Left arrow key - previous image
+    else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      this.handlePrevImage(e);
     }
   }
 
