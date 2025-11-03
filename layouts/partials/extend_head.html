@@ -8,3 +8,129 @@
 <link rel="shortcut icon" href= "{{ .Site.BaseURL }}//favicon.png" />
 
 <meta name="google-site-verification" content="xC3BBL9ym7zySSDK1aKdHbLOobpLjdnKe9ZAzZvxaeA" />
+
+{{- /* Image Preloading for List Pages */}}
+{{- if or .IsHome (eq .Kind "section") (eq .Kind "term") }}
+{{- $pages := union .RegularPages .Sections }}
+{{- if .IsHome }}
+{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
+{{- end }}
+{{- $paginator := .Paginate $pages }}
+{{- $preloadCount := 3 }}
+{{- range $index, $page := first $preloadCount $paginator.Pages }}
+{{- if and $page.Params.cover.image (ne ($page.Params.cover.hidden | default site.Params.cover.hiddenInList) true) }}
+{{- $cover := ($page.Resources.ByType "image").GetMatch (printf "*%s*" ($page.Params.cover.image)) }}
+{{- if $cover }}
+{{- $sizes := slice "360" "480" "720" }}
+{{- $processableFormats := slice "jpg" "jpeg" "png" "tif" "bmp" "gif" }}
+{{- if hugo.IsExtended }}
+{{- $processableFormats = $processableFormats | append "webp" }}
+{{- end }}
+{{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
+{{- if and (in $processableFormats $cover.MediaType.SubType) (eq $prod true) }}
+{{- /* Preload the most appropriate size for initial viewport */}}
+{{- $preloadSize := "720" }}
+{{- if lt $cover.Width 720 }}
+{{- $preloadSize = (string $cover.Width) }}
+{{- end }}
+{{- $preloadImg := $cover.Resize (printf "%sx" $preloadSize) }}
+<link rel="preload" as="image" href="{{ $preloadImg.Permalink }}"
+      {{- if eq $index 0 }} fetchpriority="high" {{ end }}>
+{{- else }}
+<link rel="preload" as="image" href="{{ (path.Join $page.RelPermalink $page.Params.cover.image) | absURL }}"
+      {{- if eq $index 0 }} fetchpriority="high" {{ end }}>
+{{- end }}
+{{- else }}
+{{- if ne ($page.Params.cover.relative | default false) true }}
+<link rel="preload" as="image" href="{{ $page.Params.cover.image | absURL }}"
+      {{- if eq $index 0 }} fetchpriority="high" {{ end }}>
+{{- else }}
+<link rel="preload" as="image" href="{{ (path.Join $page.RelPermalink $page.Params.cover.image) | absURL }}"
+      {{- if eq $index 0 }} fetchpriority="high" {{ end }}>
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{- /* Image Preloading for Traveling Page */}}
+{{- if or (eq .Section "traveling") (in .Permalink "/traveling") }}
+<script>
+// Preload first image from each location for faster initial display
+(function() {
+  const travelImages = [
+    "/traveling/california/IMG_9653.jpg",
+    "/traveling/tokyo/IMG_1486.jpg",
+    "/traveling/london/IMG_9565.jpg",
+    "/traveling/paris/IMG_8612.jpg",
+    "/traveling/kyoto/IMG_0350.jpg",
+    "/traveling/amsterdam/IMG_8130.jpg",
+    "/traveling/berlin/IMG_0344.jpg",
+    "/traveling/munich/IMG_5798.jpg",
+    "/traveling/seattle/IMG_8127.jpg",
+    "/traveling/chicago/IMG_8482.jpg",
+    "/traveling/new_york/IMG_9154.jpg",
+    "/traveling/vienna/IMG_1100.jpg",
+    "/traveling/auckland/IMG_2558.jpg",
+    "/traveling/busan/IMG_6917.jpg",
+    "/traveling/singapore/IMG_2291.jpg",
+    "/traveling/croatia/IMG_4683.jpg",
+    "/traveling/budapest/IMG_4110.jpg",
+    "/traveling/da_nang/IMG_5235.jpg",
+    "/traveling/dubai/IMG_5972.jpg",
+    "/traveling/pittsburgh/IMG_8729.jpg"
+  ];
+  
+  // Preload images with low priority after page load
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(function() {
+      travelImages.forEach(function(src) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        link.fetchPriority = 'low';
+        document.head.appendChild(link);
+      });
+    }, { timeout: 2000 });
+  } else {
+    // Fallback for browsers without requestIdleCallback
+    setTimeout(function() {
+      travelImages.forEach(function(src) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        document.head.appendChild(link);
+      });
+    }, 1000);
+  }
+  
+  // Also preload images that are likely to be viewed next (using Intersection Observer)
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+          imageObserver.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px'
+    });
+    
+    // Observe all images in the page
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('img[data-src]').forEach(function(img) {
+        imageObserver.observe(img);
+      });
+    });
+  }
+})();
+</script>
+{{- end }}

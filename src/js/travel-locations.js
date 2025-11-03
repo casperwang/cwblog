@@ -69,8 +69,8 @@ export const travelLocations = [
       "/traveling/nagoya/IMG_2269.jpg",
       "/traveling/osaka/IMG_2341.jpg",
     ],
-    times: ["", "", "", "", "", "", "2025-09-24"],
-    locations: ["","","", "", "", "合掌村", "大阪・関西万博"],
+    times: ["2024-10-31", "2024-10-31", "2024-10-31", "2024-11-01", "2024-11-02", "2025-01-20", "2025-09-24"],
+    locations: ["金閣寺","比叡山","琉璃光院", "伏見稻荷大社", "COYOTE Coffee Shop", "合掌村", "大阪・関西万博"],
     descriptions: ["", "","","","","",""],
   },
   {

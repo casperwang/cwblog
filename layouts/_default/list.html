@@ -63,7 +63,8 @@
 
 <article class="{{ $class }}">
   {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
-  {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+  {{- $isFirstImage := (and (eq $paginator.PageNumber 1) (eq $index 0)) }}
+  {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden "IsFirstImage" $isFirstImage) }}
   <header class="entry-header">
     <h2>
       {{- .Title }}

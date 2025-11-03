@@ -27,10 +27,38 @@ class TravelMap extends Component {
     // Listen for theme changes
     this.setupThemeListener();
     
+    // Preload first images from all locations
+    this.preloadInitialImages();
+    
     // Set loading to false after component mounts
     setTimeout(() => {
       this.setState({ isLoading: false });
     }, 1000);
+  }
+
+  preloadInitialImages = () => {
+    // Preload first image from each location for faster display
+    travelLocations.forEach((location) => {
+      if (location.images && location.images.length > 0) {
+        const img = new Image();
+        img.src = location.images[0];
+        // Optionally preload next image in sequence
+        if (location.images.length > 1) {
+          const nextImg = new Image();
+          nextImg.src = location.images[1];
+        }
+      }
+    });
+  }
+
+  preloadLocationImages = (location) => {
+    // Preload all images for a location when it's hovered
+    if (location && location.images) {
+      location.images.forEach((imgSrc) => {
+        const img = new Image();
+        img.src = imgSrc;
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -106,6 +134,9 @@ class TravelMap extends Component {
   handleMarkerHover = (location) => {
     const { hoveredLocation } = this.state;
     
+    // Preload images for this location when hovered
+    this.preloadLocationImages(location);
+    
     // Only randomize if this is a different location
     let selectedImageIndex = this.state.selectedImageIndex;
     if (!hoveredLocation || hoveredLocation.coordinates[0] !== location.coordinates[0] || 
@@ -139,6 +170,9 @@ class TravelMap extends Component {
   handleMarkerClick = (location) => {
     // Cancel any pending leave timeout
     this.cancelMarkerLeave();
+    
+    // Preload all images for the clicked location
+    this.preloadLocationImages(location);
     
     let selectedImageIndex = this.state.selectedImageIndex;
     this.setState({ 
@@ -195,6 +229,11 @@ class TravelMap extends Component {
     const activeLocation = pinnedLocation || hoveredLocation;
     if (activeLocation && activeLocation.images && activeLocation.images.length > 0) {
       const nextIndex = (selectedImageIndex + 1) % activeLocation.images.length;
+      // Preload the next image in sequence
+      if (activeLocation.images[nextIndex]) {
+        const img = new Image();
+        img.src = activeLocation.images[nextIndex];
+      }
       this.setState({ selectedImageIndex: nextIndex });
     }
   }
@@ -205,6 +244,11 @@ class TravelMap extends Component {
     const activeLocation = pinnedLocation || hoveredLocation;
     if (activeLocation && activeLocation.images && activeLocation.images.length > 0) {
       const prevIndex = (selectedImageIndex - 1 + activeLocation.images.length) % activeLocation.images.length;
+      // Preload the previous image in sequence
+      if (activeLocation.images[prevIndex]) {
+        const img = new Image();
+        img.src = activeLocation.images[prevIndex];
+      }
       this.setState({ selectedImageIndex: prevIndex });
     }
   }
