@@ -228,7 +228,7 @@ export const travelLocations = [
       "/traveling/budapest/IMG_4458.jpg",
     ],
     times: ["2025-04-05", "2025-04-05", "2025-04-07"],
-    locations: ["Danube", "Országház", "Shoes on the Danube Bank"],
+    locations: ["Danube", "Hungarian Parliament Building", "Shoes on the Danube Bank"],
     descriptions: ["", "", ""],
   },
   {
